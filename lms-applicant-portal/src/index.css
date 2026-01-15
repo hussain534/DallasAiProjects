@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #205aa1;
+  --color-primary-dark: #184785;
+  --color-primary-light: #2d6db8;
+  --color-accent-purple: #4a1942;
+  --color-accent-magenta: #7b2d5b;
+  --color-success: #2d5a3d;
+  --color-success-light: #3d6a4d;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f5f5f5;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-gradient-offer {
+  background: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-magenta));
+}
