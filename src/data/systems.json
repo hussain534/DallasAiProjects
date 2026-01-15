@@ -1,0 +1,385 @@
+{
+  "systems": [
+    {
+      "id": "cards",
+      "name": "Cards",
+      "description": "Credit and Debit card management system for issuing, managing, and processing card transactions",
+      "icon": "cards",
+      "color": "#3B82F6",
+      "hasSubSystems": true,
+      "subSystems": ["cards-3rdparty", "cards-temenos"]
+    },
+    {
+      "id": "cards-3rdparty",
+      "name": "3rd Party Cards Systems",
+      "description": "Third-party card processing and management solutions for credit and debit card operations",
+      "icon": "cards",
+      "color": "#3B82F6",
+      "parentId": "cards",
+      "overview": "The 3rd Party Cards system provides comprehensive card lifecycle management through external vendor integrations. It supports credit and debit card products with seamless connectivity to third-party processors, payment networks, and card manufacturing partners.",
+      "apis": [
+        {
+          "name": "3rd Party Card Issuance API",
+          "version": "2.1",
+          "description": "Issue new credit and debit cards through third-party processors",
+          "portalUrl": "https://developer-portal.example.com/cards/3rdparty/issuance"
+        },
+        {
+          "name": "Vendor Integration API",
+          "version": "3.0",
+          "description": "Manage third-party vendor connections and card lifecycle operations",
+          "portalUrl": "https://developer-portal.example.com/cards/3rdparty/vendor"
+        },
+        {
+          "name": "External Transaction API",
+          "version": "2.5",
+          "description": "Process card transactions through external payment networks",
+          "portalUrl": "https://developer-portal.example.com/cards/3rdparty/transactions"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "3rd Party Cards Overview",
+          "description": "Complete guide to third-party card management integration",
+          "url": "https://docs.example.com/cards/3rdparty/overview"
+        },
+        {
+          "title": "Vendor Integration Guide",
+          "description": "Step-by-step third-party integration instructions",
+          "url": "https://docs.example.com/cards/3rdparty/integration"
+        },
+        {
+          "title": "External API Reference",
+          "description": "Detailed third-party API documentation and schemas",
+          "url": "https://docs.example.com/cards/3rdparty/api-reference"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "3rd Party Issuance Demo",
+          "description": "Try issuing cards through third-party processors",
+          "url": "https://demo.example.com/cards/3rdparty/issuance"
+        },
+        {
+          "title": "Vendor Transaction Simulator",
+          "description": "Simulate transactions through external networks",
+          "url": "https://demo.example.com/cards/3rdparty/simulator"
+        }
+      ]
+    },
+    {
+      "id": "cards-temenos",
+      "name": "Temenos Cards Systems",
+      "description": "Native Temenos card processing and management platform for enterprise card operations",
+      "icon": "cards",
+      "color": "#8B5CF6",
+      "parentId": "cards",
+      "overview": "The Temenos Cards system provides native, fully-integrated card lifecycle management within the Temenos ecosystem. It delivers end-to-end credit and debit card capabilities with deep integration to Temenos core banking, real-time processing, and comprehensive compliance features.",
+      "apis": [
+        {
+          "name": "Temenos Card Issuance API",
+          "version": "4.0",
+          "description": "Issue credit and debit cards natively within Temenos platform",
+          "portalUrl": "https://developer-portal.example.com/cards/temenos/issuance"
+        },
+        {
+          "name": "Temenos Card Management API",
+          "version": "5.0",
+          "description": "Full card lifecycle management integrated with Temenos core",
+          "portalUrl": "https://developer-portal.example.com/cards/temenos/management"
+        },
+        {
+          "name": "Temenos Transaction Engine API",
+          "version": "3.5",
+          "description": "Real-time transaction processing with Temenos integration",
+          "portalUrl": "https://developer-portal.example.com/cards/temenos/transactions"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Temenos Cards Overview",
+          "description": "Complete guide to Temenos native card management",
+          "url": "https://docs.example.com/cards/temenos/overview"
+        },
+        {
+          "title": "Core Banking Integration",
+          "description": "Temenos core banking integration for cards",
+          "url": "https://docs.example.com/cards/temenos/core-integration"
+        },
+        {
+          "title": "Temenos API Reference",
+          "description": "Detailed Temenos Cards API documentation",
+          "url": "https://docs.example.com/cards/temenos/api-reference"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "Temenos Card Issuance Demo",
+          "description": "Experience native Temenos card issuance",
+          "url": "https://demo.example.com/cards/temenos/issuance"
+        },
+        {
+          "title": "Temenos Transaction Demo",
+          "description": "Test real-time Temenos transaction processing",
+          "url": "https://demo.example.com/cards/temenos/simulator"
+        }
+      ]
+    },
+    {
+      "id": "crm",
+      "name": "CRM",
+      "description": "Customer Relationship Management platform for managing customer interactions and data",
+      "icon": "crm",
+      "color": "#22C55E",
+      "overview": "The CRM system centralizes customer information, interaction history, and relationship management. It provides a 360-degree view of customers across all banking products and channels.",
+      "apis": [
+        {
+          "name": "Customer Profile API",
+          "version": "4.0",
+          "description": "Access and manage comprehensive customer profiles",
+          "portalUrl": "https://developer-portal.example.com/crm/profiles"
+        },
+        {
+          "name": "Interaction History API",
+          "version": "2.3",
+          "description": "Track and retrieve customer interaction history",
+          "portalUrl": "https://developer-portal.example.com/crm/interactions"
+        },
+        {
+          "name": "Lead Management API",
+          "version": "1.5",
+          "description": "Manage sales leads and opportunity tracking",
+          "portalUrl": "https://developer-portal.example.com/crm/leads"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "CRM Platform Guide",
+          "description": "Understanding the CRM architecture and features",
+          "url": "https://docs.example.com/crm/guide"
+        },
+        {
+          "title": "Customer Data Model",
+          "description": "Customer entity structure and relationships",
+          "url": "https://docs.example.com/crm/data-model"
+        },
+        {
+          "title": "Best Practices",
+          "description": "CRM integration best practices and patterns",
+          "url": "https://docs.example.com/crm/best-practices"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "Customer 360 View",
+          "description": "See the complete customer profile experience",
+          "url": "https://demo.example.com/crm/customer-360"
+        },
+        {
+          "title": "Agent Dashboard",
+          "description": "Experience the customer service agent interface",
+          "url": "https://demo.example.com/crm/agent-dashboard"
+        }
+      ]
+    },
+    {
+      "id": "digital",
+      "name": "Digital",
+      "description": "Digital banking platform enabling mobile and online banking experiences",
+      "icon": "digital",
+      "color": "#8B5CF6",
+      "overview": "The Digital platform powers modern banking experiences across web and mobile channels. It includes features for account management, bill pay, transfers, and personalized financial insights.",
+      "apis": [
+        {
+          "name": "Account Access API",
+          "version": "5.0",
+          "description": "Secure access to customer accounts and balances",
+          "portalUrl": "https://developer-portal.example.com/digital/accounts"
+        },
+        {
+          "name": "Transfer API",
+          "version": "3.2",
+          "description": "Internal and external fund transfer capabilities",
+          "portalUrl": "https://developer-portal.example.com/digital/transfers"
+        },
+        {
+          "name": "Bill Pay API",
+          "version": "2.8",
+          "description": "Bill payment scheduling and management",
+          "portalUrl": "https://developer-portal.example.com/digital/billpay"
+        },
+        {
+          "name": "Notifications API",
+          "version": "1.9",
+          "description": "Push notifications and alert management",
+          "portalUrl": "https://developer-portal.example.com/digital/notifications"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Digital Banking Overview",
+          "description": "Introduction to digital banking capabilities",
+          "url": "https://docs.example.com/digital/overview"
+        },
+        {
+          "title": "Mobile SDK Guide",
+          "description": "iOS and Android SDK integration",
+          "url": "https://docs.example.com/digital/mobile-sdk"
+        },
+        {
+          "title": "Security Standards",
+          "description": "Authentication and security requirements",
+          "url": "https://docs.example.com/digital/security"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "Mobile App Demo",
+          "description": "Interactive mobile banking demonstration",
+          "url": "https://demo.example.com/digital/mobile"
+        },
+        {
+          "title": "Online Banking Portal",
+          "description": "Web-based banking experience demo",
+          "url": "https://demo.example.com/digital/web"
+        }
+      ]
+    },
+    {
+      "id": "payments",
+      "name": "ACH & Wires Payments",
+      "description": "Comprehensive payment processing for ACH and wire transfers",
+      "icon": "payments",
+      "color": "#F59E0B",
+      "overview": "The Payments system handles high-value wire transfers and batch ACH processing. It ensures compliance with NACHA rules, same-day ACH, and international wire standards including SWIFT.",
+      "apis": [
+        {
+          "name": "ACH Origination API",
+          "version": "4.1",
+          "description": "Originate ACH credits and debits",
+          "portalUrl": "https://developer-portal.example.com/payments/ach"
+        },
+        {
+          "name": "Wire Transfer API",
+          "version": "3.5",
+          "description": "Domestic and international wire transfers",
+          "portalUrl": "https://developer-portal.example.com/payments/wires"
+        },
+        {
+          "name": "Payment Status API",
+          "version": "2.0",
+          "description": "Real-time payment tracking and status updates",
+          "portalUrl": "https://developer-portal.example.com/payments/status"
+        },
+        {
+          "name": "Batch Processing API",
+          "version": "1.8",
+          "description": "Bulk payment file processing",
+          "portalUrl": "https://developer-portal.example.com/payments/batch"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Payments Platform Guide",
+          "description": "Complete payments system documentation",
+          "url": "https://docs.example.com/payments/guide"
+        },
+        {
+          "title": "ACH Processing Rules",
+          "description": "NACHA compliance and processing windows",
+          "url": "https://docs.example.com/payments/ach-rules"
+        },
+        {
+          "title": "Wire Transfer Standards",
+          "description": "SWIFT and Fedwire integration details",
+          "url": "https://docs.example.com/payments/wire-standards"
+        },
+        {
+          "title": "Error Handling",
+          "description": "Payment rejection codes and resolution",
+          "url": "https://docs.example.com/payments/errors"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "ACH Origination Demo",
+          "description": "Create and submit ACH transactions",
+          "url": "https://demo.example.com/payments/ach-demo"
+        },
+        {
+          "title": "Wire Transfer Demo",
+          "description": "Simulate domestic and international wires",
+          "url": "https://demo.example.com/payments/wire-demo"
+        },
+        {
+          "title": "Payment Tracking",
+          "description": "Track payments in real-time",
+          "url": "https://demo.example.com/payments/tracking"
+        }
+      ]
+    },
+    {
+      "id": "onboarding",
+      "name": "Onboarding",
+      "description": "Customer onboarding and account opening platform with KYC/AML integration",
+      "icon": "onboarding",
+      "color": "#6366F1",
+      "overview": "The Onboarding system streamlines new customer acquisition with digital identity verification, document capture, and automated KYC/AML screening. It supports multiple product applications in a single workflow.",
+      "apis": [
+        {
+          "name": "Application API",
+          "version": "3.0",
+          "description": "Submit and manage account applications",
+          "portalUrl": "https://developer-portal.example.com/onboarding/applications"
+        },
+        {
+          "name": "Identity Verification API",
+          "version": "2.5",
+          "description": "KYC identity verification and document validation",
+          "portalUrl": "https://developer-portal.example.com/onboarding/identity"
+        },
+        {
+          "name": "Document Capture API",
+          "version": "1.8",
+          "description": "Document upload and OCR processing",
+          "portalUrl": "https://developer-portal.example.com/onboarding/documents"
+        },
+        {
+          "name": "Decision Engine API",
+          "version": "2.2",
+          "description": "Automated application decisioning",
+          "portalUrl": "https://developer-portal.example.com/onboarding/decisions"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Onboarding Overview",
+          "description": "Complete onboarding platform guide",
+          "url": "https://docs.example.com/onboarding/overview"
+        },
+        {
+          "title": "KYC/AML Compliance",
+          "description": "Identity verification and screening requirements",
+          "url": "https://docs.example.com/onboarding/kyc-aml"
+        },
+        {
+          "title": "Workflow Configuration",
+          "description": "Customizing the onboarding workflow",
+          "url": "https://docs.example.com/onboarding/workflows"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "Account Opening Flow",
+          "description": "Complete new account application demo",
+          "url": "https://demo.example.com/onboarding/account-opening"
+        },
+        {
+          "title": "Identity Verification",
+          "description": "Test document capture and verification",
+          "url": "https://demo.example.com/onboarding/id-verify"
+        }
+      ]
+    }
+  ]
+}
