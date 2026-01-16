@@ -1,218 +1,188 @@
 {
   "systems": [
     {
-      "id": "cards",
-      "name": "Cards",
-      "description": "Credit and Debit card management system for issuing, managing, and processing card transactions",
-      "icon": "cards",
+      "id": "card-services",
+      "name": "Card Services",
+      "description": "Credit and debit card management, issuance, and transaction processing",
+      "icon": "card-services",
       "color": "#3B82F6",
-      "hasSubSystems": true,
-      "subSystems": ["cards-3rdparty", "cards-temenos"]
-    },
-    {
-      "id": "cards-3rdparty",
-      "name": "3rd Party Cards Systems",
-      "description": "Third-party card processing and management solutions for credit and debit card operations",
-      "icon": "cards",
-      "color": "#3B82F6",
-      "parentId": "cards",
-      "overview": "The 3rd Party Cards system provides comprehensive card lifecycle management through external vendor integrations. It supports credit and debit card products with seamless connectivity to third-party processors, payment networks, and card manufacturing partners.",
+      "type": "all",
+      "overview": "Comprehensive card lifecycle management including issuance, activation, transaction processing, and fraud detection for credit and debit card products.",
       "apis": [
         {
-          "name": "3rd Party Card Issuance API",
+          "name": "Card Issuance API",
+          "version": "4.0",
+          "description": "Issue new credit and debit cards with customizable parameters",
+          "portalUrl": "https://developer-portal.example.com/card-services/issuance",
+          "type": "temenos"
+        },
+        {
+          "name": "Card Management API",
+          "version": "3.5",
+          "description": "Manage card lifecycle, limits, and settings",
+          "portalUrl": "https://developer-portal.example.com/card-services/management",
+          "type": "temenos"
+        },
+        {
+          "name": "Transaction Processing API",
+          "version": "5.0",
+          "description": "Real-time transaction authorization and processing",
+          "portalUrl": "https://developer-portal.example.com/card-services/transactions",
+          "type": "temenos"
+        },
+        {
+          "name": "3rd Party Card Gateway",
           "version": "2.1",
-          "description": "Issue new credit and debit cards through third-party processors",
-          "portalUrl": "https://developer-portal.example.com/cards/3rdparty/issuance"
+          "description": "Integration with external card processors",
+          "portalUrl": "https://developer-portal.example.com/card-services/3rdparty-gateway",
+          "type": "3rdparty"
         },
         {
           "name": "Vendor Integration API",
           "version": "3.0",
-          "description": "Manage third-party vendor connections and card lifecycle operations",
-          "portalUrl": "https://developer-portal.example.com/cards/3rdparty/vendor"
-        },
-        {
-          "name": "External Transaction API",
-          "version": "2.5",
-          "description": "Process card transactions through external payment networks",
-          "portalUrl": "https://developer-portal.example.com/cards/3rdparty/transactions"
+          "description": "Connect with third-party card manufacturing and personalization",
+          "portalUrl": "https://developer-portal.example.com/card-services/vendor",
+          "type": "3rdparty"
         }
       ],
       "documentation": [
         {
-          "title": "3rd Party Cards Overview",
-          "description": "Complete guide to third-party card management integration",
-          "url": "https://docs.example.com/cards/3rdparty/overview"
+          "title": "Card Services Overview",
+          "description": "Complete guide to card management integration",
+          "url": "https://docs.example.com/card-services/overview"
         },
         {
-          "title": "Vendor Integration Guide",
-          "description": "Step-by-step third-party integration instructions",
-          "url": "https://docs.example.com/cards/3rdparty/integration"
+          "title": "Issuance Guide",
+          "description": "Step-by-step card issuance instructions",
+          "url": "https://docs.example.com/card-services/issuance"
         },
         {
-          "title": "External API Reference",
-          "description": "Detailed third-party API documentation and schemas",
-          "url": "https://docs.example.com/cards/3rdparty/api-reference"
+          "title": "API Reference",
+          "description": "Detailed API documentation and schemas",
+          "url": "https://docs.example.com/card-services/api-reference"
         }
       ],
       "demoLinks": [
         {
-          "title": "3rd Party Issuance Demo",
-          "description": "Try issuing cards through third-party processors",
-          "url": "https://demo.example.com/cards/3rdparty/issuance"
+          "title": "Card Issuance Demo",
+          "description": "Experience the card issuance workflow",
+          "url": "https://demo.example.com/card-services/issuance"
         },
         {
-          "title": "Vendor Transaction Simulator",
-          "description": "Simulate transactions through external networks",
-          "url": "https://demo.example.com/cards/3rdparty/simulator"
+          "title": "Transaction Simulator",
+          "description": "Test card transaction processing",
+          "url": "https://demo.example.com/card-services/simulator"
         }
       ]
     },
     {
-      "id": "cards-temenos",
-      "name": "Temenos Cards Systems",
-      "description": "Native Temenos card processing and management platform for enterprise card operations",
-      "icon": "cards",
-      "color": "#8B5CF6",
-      "parentId": "cards",
-      "overview": "The Temenos Cards system provides native, fully-integrated card lifecycle management within the Temenos ecosystem. It delivers end-to-end credit and debit card capabilities with deep integration to Temenos core banking, real-time processing, and comprehensive compliance features.",
-      "apis": [
-        {
-          "name": "Temenos Card Issuance API",
-          "version": "4.0",
-          "description": "Issue credit and debit cards natively within Temenos platform",
-          "portalUrl": "https://developer-portal.example.com/cards/temenos/issuance"
-        },
-        {
-          "name": "Temenos Card Management API",
-          "version": "5.0",
-          "description": "Full card lifecycle management integrated with Temenos core",
-          "portalUrl": "https://developer-portal.example.com/cards/temenos/management"
-        },
-        {
-          "name": "Temenos Transaction Engine API",
-          "version": "3.5",
-          "description": "Real-time transaction processing with Temenos integration",
-          "portalUrl": "https://developer-portal.example.com/cards/temenos/transactions"
-        }
-      ],
-      "documentation": [
-        {
-          "title": "Temenos Cards Overview",
-          "description": "Complete guide to Temenos native card management",
-          "url": "https://docs.example.com/cards/temenos/overview"
-        },
-        {
-          "title": "Core Banking Integration",
-          "description": "Temenos core banking integration for cards",
-          "url": "https://docs.example.com/cards/temenos/core-integration"
-        },
-        {
-          "title": "Temenos API Reference",
-          "description": "Detailed Temenos Cards API documentation",
-          "url": "https://docs.example.com/cards/temenos/api-reference"
-        }
-      ],
-      "demoLinks": [
-        {
-          "title": "Temenos Card Issuance Demo",
-          "description": "Experience native Temenos card issuance",
-          "url": "https://demo.example.com/cards/temenos/issuance"
-        },
-        {
-          "title": "Temenos Transaction Demo",
-          "description": "Test real-time Temenos transaction processing",
-          "url": "https://demo.example.com/cards/temenos/simulator"
-        }
-      ]
-    },
-    {
-      "id": "crm",
-      "name": "CRM",
-      "description": "Customer Relationship Management platform for managing customer interactions and data",
-      "icon": "crm",
+      "id": "item-processing",
+      "name": "Item Processing",
+      "description": "Check processing, image capture, and item clearing services",
+      "icon": "item-processing",
       "color": "#22C55E",
-      "overview": "The CRM system centralizes customer information, interaction history, and relationship management. It provides a 360-degree view of customers across all banking products and channels.",
+      "type": "all",
+      "overview": "End-to-end item processing including check capture, image processing, clearing, and exception handling for financial institutions.",
       "apis": [
         {
-          "name": "Customer Profile API",
-          "version": "4.0",
-          "description": "Access and manage comprehensive customer profiles",
-          "portalUrl": "https://developer-portal.example.com/crm/profiles"
+          "name": "Check Capture API",
+          "version": "3.0",
+          "description": "Remote deposit capture and image processing",
+          "portalUrl": "https://developer-portal.example.com/item-processing/capture",
+          "type": "temenos"
         },
         {
-          "name": "Interaction History API",
-          "version": "2.3",
-          "description": "Track and retrieve customer interaction history",
-          "portalUrl": "https://developer-portal.example.com/crm/interactions"
+          "name": "Item Clearing API",
+          "version": "2.5",
+          "description": "Automated clearing house integration",
+          "portalUrl": "https://developer-portal.example.com/item-processing/clearing",
+          "type": "temenos"
         },
         {
-          "name": "Lead Management API",
-          "version": "1.5",
-          "description": "Manage sales leads and opportunity tracking",
-          "portalUrl": "https://developer-portal.example.com/crm/leads"
+          "name": "Exception Processing API",
+          "version": "1.8",
+          "description": "Handle returns and exception items",
+          "portalUrl": "https://developer-portal.example.com/item-processing/exceptions",
+          "type": "temenos"
+        },
+        {
+          "name": "3rd Party Image Exchange",
+          "version": "2.0",
+          "description": "External image exchange network integration",
+          "portalUrl": "https://developer-portal.example.com/item-processing/3rdparty-exchange",
+          "type": "3rdparty"
         }
       ],
       "documentation": [
         {
-          "title": "CRM Platform Guide",
-          "description": "Understanding the CRM architecture and features",
-          "url": "https://docs.example.com/crm/guide"
+          "title": "Item Processing Guide",
+          "description": "Complete item processing documentation",
+          "url": "https://docs.example.com/item-processing/guide"
         },
         {
-          "title": "Customer Data Model",
-          "description": "Customer entity structure and relationships",
-          "url": "https://docs.example.com/crm/data-model"
-        },
-        {
-          "title": "Best Practices",
-          "description": "CRM integration best practices and patterns",
-          "url": "https://docs.example.com/crm/best-practices"
+          "title": "Image Standards",
+          "description": "Check image quality and format requirements",
+          "url": "https://docs.example.com/item-processing/standards"
         }
       ],
       "demoLinks": [
         {
-          "title": "Customer 360 View",
-          "description": "See the complete customer profile experience",
-          "url": "https://demo.example.com/crm/customer-360"
-        },
-        {
-          "title": "Agent Dashboard",
-          "description": "Experience the customer service agent interface",
-          "url": "https://demo.example.com/crm/agent-dashboard"
+          "title": "Check Capture Demo",
+          "description": "Try remote deposit capture",
+          "url": "https://demo.example.com/item-processing/capture"
         }
       ]
     },
     {
       "id": "digital",
       "name": "Digital",
-      "description": "Digital banking platform enabling mobile and online banking experiences",
+      "description": "Digital banking platform for mobile and online banking experiences",
       "icon": "digital",
       "color": "#8B5CF6",
-      "overview": "The Digital platform powers modern banking experiences across web and mobile channels. It includes features for account management, bill pay, transfers, and personalized financial insights.",
+      "type": "all",
+      "overview": "Modern digital banking experiences across web and mobile channels with account management, transfers, bill pay, and personalized insights.",
       "apis": [
         {
           "name": "Account Access API",
           "version": "5.0",
           "description": "Secure access to customer accounts and balances",
-          "portalUrl": "https://developer-portal.example.com/digital/accounts"
+          "portalUrl": "https://developer-portal.example.com/digital/accounts",
+          "type": "temenos"
         },
         {
           "name": "Transfer API",
           "version": "3.2",
           "description": "Internal and external fund transfer capabilities",
-          "portalUrl": "https://developer-portal.example.com/digital/transfers"
+          "portalUrl": "https://developer-portal.example.com/digital/transfers",
+          "type": "temenos"
         },
         {
           "name": "Bill Pay API",
           "version": "2.8",
           "description": "Bill payment scheduling and management",
-          "portalUrl": "https://developer-portal.example.com/digital/billpay"
+          "portalUrl": "https://developer-portal.example.com/digital/billpay",
+          "type": "temenos"
         },
         {
           "name": "Notifications API",
           "version": "1.9",
           "description": "Push notifications and alert management",
-          "portalUrl": "https://developer-portal.example.com/digital/notifications"
+          "portalUrl": "https://developer-portal.example.com/digital/notifications",
+          "type": "temenos"
+        },
+        {
+          "name": "3rd Party Authentication",
+          "version": "2.5",
+          "description": "External identity provider integration",
+          "portalUrl": "https://developer-portal.example.com/digital/3rdparty-auth",
+          "type": "3rdparty"
+        },
+        {
+          "name": "Fintech Partner API",
+          "version": "1.5",
+          "description": "Connect with fintech service providers",
+          "portalUrl": "https://developer-portal.example.com/digital/fintech",
+          "type": "3rdparty"
         }
       ],
       "documentation": [
@@ -246,138 +216,393 @@
       ]
     },
     {
-      "id": "payments",
-      "name": "ACH & Wires Payments",
-      "description": "Comprehensive payment processing for ACH and wire transfers",
-      "icon": "payments",
+      "id": "lending",
+      "name": "Lending",
+      "description": "Loan origination, servicing, and collections management",
+      "icon": "lending",
       "color": "#F59E0B",
-      "overview": "The Payments system handles high-value wire transfers and batch ACH processing. It ensures compliance with NACHA rules, same-day ACH, and international wire standards including SWIFT.",
+      "type": "all",
+      "overview": "Complete lending lifecycle management from application to servicing, including consumer loans, mortgages, and commercial lending products.",
       "apis": [
         {
-          "name": "ACH Origination API",
-          "version": "4.1",
-          "description": "Originate ACH credits and debits",
-          "portalUrl": "https://developer-portal.example.com/payments/ach"
+          "name": "Loan Origination API",
+          "version": "4.0",
+          "description": "Submit and process loan applications",
+          "portalUrl": "https://developer-portal.example.com/lending/origination",
+          "type": "temenos"
         },
         {
-          "name": "Wire Transfer API",
+          "name": "Credit Decision API",
           "version": "3.5",
-          "description": "Domestic and international wire transfers",
-          "portalUrl": "https://developer-portal.example.com/payments/wires"
+          "description": "Automated credit underwriting and decisioning",
+          "portalUrl": "https://developer-portal.example.com/lending/decisions",
+          "type": "temenos"
         },
         {
-          "name": "Payment Status API",
+          "name": "Loan Servicing API",
+          "version": "2.8",
+          "description": "Manage active loans and payments",
+          "portalUrl": "https://developer-portal.example.com/lending/servicing",
+          "type": "temenos"
+        },
+        {
+          "name": "Collections API",
           "version": "2.0",
-          "description": "Real-time payment tracking and status updates",
-          "portalUrl": "https://developer-portal.example.com/payments/status"
+          "description": "Delinquency management and collections",
+          "portalUrl": "https://developer-portal.example.com/lending/collections",
+          "type": "temenos"
         },
         {
-          "name": "Batch Processing API",
-          "version": "1.8",
-          "description": "Bulk payment file processing",
-          "portalUrl": "https://developer-portal.example.com/payments/batch"
+          "name": "3rd Party Credit Bureau",
+          "version": "3.0",
+          "description": "External credit bureau integrations",
+          "portalUrl": "https://developer-portal.example.com/lending/3rdparty-credit",
+          "type": "3rdparty"
+        },
+        {
+          "name": "Vendor Valuation API",
+          "version": "1.5",
+          "description": "Third-party property valuation services",
+          "portalUrl": "https://developer-portal.example.com/lending/valuation",
+          "type": "3rdparty"
         }
       ],
       "documentation": [
         {
-          "title": "Payments Platform Guide",
-          "description": "Complete payments system documentation",
-          "url": "https://docs.example.com/payments/guide"
+          "title": "Lending Platform Guide",
+          "description": "Complete lending system documentation",
+          "url": "https://docs.example.com/lending/guide"
         },
         {
-          "title": "ACH Processing Rules",
-          "description": "NACHA compliance and processing windows",
-          "url": "https://docs.example.com/payments/ach-rules"
+          "title": "Underwriting Rules",
+          "description": "Credit policy and decisioning logic",
+          "url": "https://docs.example.com/lending/underwriting"
         },
         {
-          "title": "Wire Transfer Standards",
-          "description": "SWIFT and Fedwire integration details",
-          "url": "https://docs.example.com/payments/wire-standards"
-        },
-        {
-          "title": "Error Handling",
-          "description": "Payment rejection codes and resolution",
-          "url": "https://docs.example.com/payments/errors"
+          "title": "Collections Workflow",
+          "description": "Delinquency management procedures",
+          "url": "https://docs.example.com/lending/collections"
         }
       ],
       "demoLinks": [
         {
-          "title": "ACH Origination Demo",
-          "description": "Create and submit ACH transactions",
-          "url": "https://demo.example.com/payments/ach-demo"
+          "title": "Loan Application Demo",
+          "description": "Experience the loan origination process",
+          "url": "https://demo.example.com/lending/application"
         },
         {
-          "title": "Wire Transfer Demo",
-          "description": "Simulate domestic and international wires",
-          "url": "https://demo.example.com/payments/wire-demo"
-        },
-        {
-          "title": "Payment Tracking",
-          "description": "Track payments in real-time",
-          "url": "https://demo.example.com/payments/tracking"
+          "title": "Servicing Portal",
+          "description": "Manage loan accounts and payments",
+          "url": "https://demo.example.com/lending/servicing"
         }
       ]
     },
     {
-      "id": "onboarding",
-      "name": "Onboarding",
-      "description": "Customer onboarding and account opening platform with KYC/AML integration",
-      "icon": "onboarding",
+      "id": "core",
+      "name": "Core",
+      "description": "Core banking platform for accounts, deposits, and transactions",
+      "icon": "core",
       "color": "#6366F1",
-      "overview": "The Onboarding system streamlines new customer acquisition with digital identity verification, document capture, and automated KYC/AML screening. It supports multiple product applications in a single workflow.",
+      "type": "all",
+      "overview": "Central banking system managing customer accounts, deposits, general ledger, and core transaction processing.",
       "apis": [
         {
-          "name": "Application API",
-          "version": "3.0",
-          "description": "Submit and manage account applications",
-          "portalUrl": "https://developer-portal.example.com/onboarding/applications"
+          "name": "Account Management API",
+          "version": "5.0",
+          "description": "Create and manage customer accounts",
+          "portalUrl": "https://developer-portal.example.com/core/accounts",
+          "type": "temenos"
         },
         {
-          "name": "Identity Verification API",
-          "version": "2.5",
-          "description": "KYC identity verification and document validation",
-          "portalUrl": "https://developer-portal.example.com/onboarding/identity"
+          "name": "Deposit Services API",
+          "version": "4.0",
+          "description": "Deposit account operations and interest",
+          "portalUrl": "https://developer-portal.example.com/core/deposits",
+          "type": "temenos"
         },
         {
-          "name": "Document Capture API",
-          "version": "1.8",
-          "description": "Document upload and OCR processing",
-          "portalUrl": "https://developer-portal.example.com/onboarding/documents"
+          "name": "General Ledger API",
+          "version": "3.5",
+          "description": "GL posting and financial reporting",
+          "portalUrl": "https://developer-portal.example.com/core/gl",
+          "type": "temenos"
         },
         {
-          "name": "Decision Engine API",
-          "version": "2.2",
-          "description": "Automated application decisioning",
-          "portalUrl": "https://developer-portal.example.com/onboarding/decisions"
+          "name": "Transaction Engine API",
+          "version": "4.5",
+          "description": "Core transaction processing",
+          "portalUrl": "https://developer-portal.example.com/core/transactions",
+          "type": "temenos"
+        },
+        {
+          "name": "3rd Party Core Connector",
+          "version": "2.0",
+          "description": "Integration with external core systems",
+          "portalUrl": "https://developer-portal.example.com/core/3rdparty-connector",
+          "type": "3rdparty"
         }
       ],
       "documentation": [
         {
-          "title": "Onboarding Overview",
-          "description": "Complete onboarding platform guide",
-          "url": "https://docs.example.com/onboarding/overview"
+          "title": "Core Banking Guide",
+          "description": "Complete core system documentation",
+          "url": "https://docs.example.com/core/guide"
         },
         {
-          "title": "KYC/AML Compliance",
-          "description": "Identity verification and screening requirements",
-          "url": "https://docs.example.com/onboarding/kyc-aml"
+          "title": "Account Types",
+          "description": "Supported account configurations",
+          "url": "https://docs.example.com/core/accounts"
         },
         {
-          "title": "Workflow Configuration",
-          "description": "Customizing the onboarding workflow",
-          "url": "https://docs.example.com/onboarding/workflows"
+          "title": "GL Integration",
+          "description": "General ledger setup and posting",
+          "url": "https://docs.example.com/core/gl"
         }
       ],
       "demoLinks": [
         {
-          "title": "Account Opening Flow",
-          "description": "Complete new account application demo",
-          "url": "https://demo.example.com/onboarding/account-opening"
+          "title": "Account Opening Demo",
+          "description": "Create and configure accounts",
+          "url": "https://demo.example.com/core/accounts"
         },
         {
-          "title": "Identity Verification",
-          "description": "Test document capture and verification",
-          "url": "https://demo.example.com/onboarding/id-verify"
+          "title": "Transaction Demo",
+          "description": "Process core transactions",
+          "url": "https://demo.example.com/core/transactions"
+        }
+      ]
+    },
+    {
+      "id": "backoffice-reporting",
+      "name": "Backoffice & Reporting",
+      "description": "Operations, reconciliation, and business intelligence reporting",
+      "icon": "backoffice",
+      "color": "#EC4899",
+      "type": "all",
+      "overview": "Back-office operations including reconciliation, exception management, regulatory reporting, and business analytics.",
+      "apis": [
+        {
+          "name": "Reconciliation API",
+          "version": "3.0",
+          "description": "Automated account reconciliation",
+          "portalUrl": "https://developer-portal.example.com/backoffice/reconciliation",
+          "type": "temenos"
+        },
+        {
+          "name": "Reporting API",
+          "version": "4.0",
+          "description": "Generate operational and regulatory reports",
+          "portalUrl": "https://developer-portal.example.com/backoffice/reports",
+          "type": "temenos"
+        },
+        {
+          "name": "Analytics API",
+          "version": "2.5",
+          "description": "Business intelligence and data analytics",
+          "portalUrl": "https://developer-portal.example.com/backoffice/analytics",
+          "type": "temenos"
+        },
+        {
+          "name": "Workflow API",
+          "version": "2.0",
+          "description": "Operations workflow management",
+          "portalUrl": "https://developer-portal.example.com/backoffice/workflow",
+          "type": "temenos"
+        },
+        {
+          "name": "3rd Party BI Integration",
+          "version": "1.5",
+          "description": "Connect with external BI platforms",
+          "portalUrl": "https://developer-portal.example.com/backoffice/3rdparty-bi",
+          "type": "3rdparty"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Backoffice Guide",
+          "description": "Operations management documentation",
+          "url": "https://docs.example.com/backoffice/guide"
+        },
+        {
+          "title": "Reporting Catalog",
+          "description": "Available reports and parameters",
+          "url": "https://docs.example.com/backoffice/reports"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "Reconciliation Demo",
+          "description": "Automated reconciliation workflow",
+          "url": "https://demo.example.com/backoffice/reconciliation"
+        },
+        {
+          "title": "Reporting Dashboard",
+          "description": "Interactive reporting demo",
+          "url": "https://demo.example.com/backoffice/dashboard"
+        }
+      ]
+    },
+    {
+      "id": "branch-teller",
+      "name": "Branch & Teller",
+      "description": "Branch operations, teller transactions, and cash management",
+      "icon": "branch",
+      "color": "#14B8A6",
+      "type": "all",
+      "overview": "In-branch banking operations including teller services, cash management, vault operations, and customer service workflows.",
+      "apis": [
+        {
+          "name": "Teller API",
+          "version": "4.0",
+          "description": "Process teller transactions and services",
+          "portalUrl": "https://developer-portal.example.com/branch/teller",
+          "type": "temenos"
+        },
+        {
+          "name": "Cash Management API",
+          "version": "3.0",
+          "description": "Cash drawer and vault management",
+          "portalUrl": "https://developer-portal.example.com/branch/cash",
+          "type": "temenos"
+        },
+        {
+          "name": "Branch Services API",
+          "version": "2.5",
+          "description": "In-branch customer service operations",
+          "portalUrl": "https://developer-portal.example.com/branch/services",
+          "type": "temenos"
+        },
+        {
+          "name": "Queue Management API",
+          "version": "1.8",
+          "description": "Customer queue and appointment scheduling",
+          "portalUrl": "https://developer-portal.example.com/branch/queue",
+          "type": "temenos"
+        },
+        {
+          "name": "3rd Party Hardware Integration",
+          "version": "2.0",
+          "description": "External hardware device integration",
+          "portalUrl": "https://developer-portal.example.com/branch/3rdparty-hardware",
+          "type": "3rdparty"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Branch Operations Guide",
+          "description": "Complete branch system documentation",
+          "url": "https://docs.example.com/branch/guide"
+        },
+        {
+          "title": "Teller Procedures",
+          "description": "Transaction processing procedures",
+          "url": "https://docs.example.com/branch/teller"
+        },
+        {
+          "title": "Cash Handling",
+          "description": "Cash management best practices",
+          "url": "https://docs.example.com/branch/cash"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "Teller Demo",
+          "description": "Experience teller transactions",
+          "url": "https://demo.example.com/branch/teller"
+        },
+        {
+          "title": "Branch Dashboard",
+          "description": "Branch operations overview",
+          "url": "https://demo.example.com/branch/dashboard"
+        }
+      ]
+    },
+    {
+      "id": "compliance",
+      "name": "Compliance",
+      "description": "Regulatory compliance, AML/KYC, and risk management",
+      "icon": "compliance",
+      "color": "#EF4444",
+      "type": "all",
+      "overview": "Comprehensive compliance management including AML screening, KYC verification, regulatory reporting, and risk monitoring.",
+      "apis": [
+        {
+          "name": "AML Screening API",
+          "version": "4.0",
+          "description": "Anti-money laundering transaction monitoring",
+          "portalUrl": "https://developer-portal.example.com/compliance/aml",
+          "type": "temenos"
+        },
+        {
+          "name": "KYC Verification API",
+          "version": "3.5",
+          "description": "Know Your Customer identity verification",
+          "portalUrl": "https://developer-portal.example.com/compliance/kyc",
+          "type": "temenos"
+        },
+        {
+          "name": "Sanctions Screening API",
+          "version": "3.0",
+          "description": "OFAC and global sanctions list screening",
+          "portalUrl": "https://developer-portal.example.com/compliance/sanctions",
+          "type": "temenos"
+        },
+        {
+          "name": "Risk Assessment API",
+          "version": "2.5",
+          "description": "Customer and transaction risk scoring",
+          "portalUrl": "https://developer-portal.example.com/compliance/risk",
+          "type": "temenos"
+        },
+        {
+          "name": "Regulatory Reporting API",
+          "version": "2.0",
+          "description": "Generate regulatory compliance reports",
+          "portalUrl": "https://developer-portal.example.com/compliance/reports",
+          "type": "temenos"
+        },
+        {
+          "name": "3rd Party Watchlist API",
+          "version": "2.5",
+          "description": "External watchlist and sanctions providers",
+          "portalUrl": "https://developer-portal.example.com/compliance/3rdparty-watchlist",
+          "type": "3rdparty"
+        },
+        {
+          "name": "Vendor ID Verification",
+          "version": "1.8",
+          "description": "Third-party identity verification services",
+          "portalUrl": "https://developer-portal.example.com/compliance/3rdparty-idv",
+          "type": "3rdparty"
+        }
+      ],
+      "documentation": [
+        {
+          "title": "Compliance Overview",
+          "description": "Regulatory compliance framework guide",
+          "url": "https://docs.example.com/compliance/overview"
+        },
+        {
+          "title": "AML/KYC Guide",
+          "description": "Anti-money laundering procedures",
+          "url": "https://docs.example.com/compliance/aml-kyc"
+        },
+        {
+          "title": "Regulatory Requirements",
+          "description": "Compliance reporting requirements",
+          "url": "https://docs.example.com/compliance/regulations"
+        }
+      ],
+      "demoLinks": [
+        {
+          "title": "AML Screening Demo",
+          "description": "Test transaction monitoring",
+          "url": "https://demo.example.com/compliance/aml"
+        },
+        {
+          "title": "KYC Workflow Demo",
+          "description": "Customer verification process",
+          "url": "https://demo.example.com/compliance/kyc"
         }
       ]
     }
