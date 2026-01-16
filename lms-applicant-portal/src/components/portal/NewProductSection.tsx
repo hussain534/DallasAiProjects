@@ -17,7 +17,7 @@ export function NewProductSection() {
         Whether you are pre-approved or interested in a new product, we got you covered...
       </p>
       <div className="flex justify-center">
-        <Button variant="success" onClick={handleExplore}>
+        <Button variant="orange" onClick={handleExplore}>
           Explore our offerings
         </Button>
       </div>

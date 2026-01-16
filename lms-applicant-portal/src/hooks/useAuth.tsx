@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { createContext, useContext, useState, useEffect } from 'react';
-import { authService } from '../api/services';
+import { authService, tokenService } from '../api/services';
 import type { LoginRequest } from '../types';
 
 interface User {
@@ -8,6 +8,7 @@ interface User {
   firstName: string;
   lastName: string;
   tin?: string;
+  ssn?: string;
 }
 
 interface AuthContextType {
@@ -52,6 +53,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     authService.logout();
+    tokenService.clearToken();
+    localStorage.removeItem('user_ssn');
+    localStorage.removeItem('user_applications');
     setUser(null);
   };
 

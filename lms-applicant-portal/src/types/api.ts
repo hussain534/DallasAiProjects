@@ -19,6 +19,17 @@ export interface LoginResponse {
   UserId: string;
 }
 
+export interface ApiKeyLoginRequest {
+  ApiKey: string;
+}
+
+export interface ApiKeyLoginResponse {
+  Token: string;
+  Result: boolean;
+  Messages: string[];
+  ExceptionId: number;
+}
+
 export interface VerifyApplicantRequest {
   TIN: string;
   LastName: string;
@@ -27,6 +38,7 @@ export interface VerifyApplicantRequest {
 }
 
 export interface ApplicationSearchRequest {
+  ApplicantTIN?: number;
   TIN?: string;
   ApplicationStatus?: string;
   ApplicantLastName?: string;

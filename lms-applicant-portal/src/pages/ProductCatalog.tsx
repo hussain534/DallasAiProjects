@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Header, Footer } from '../components/layout';
 import { Card, Button } from '../components/common';
 import { formatCurrency } from '../utils';
@@ -109,6 +110,17 @@ export function ProductCatalog() {
 
       <main className="flex-grow">
         <div className="max-w-6xl mx-auto px-4 py-8">
+          {/* Back to Dashboard Link */}
+          <Link
+            to="/dashboard"
+            className="inline-flex items-center text-primary hover:text-primary-dark font-medium mb-6 transition-colors"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Dashboard
+          </Link>
+
           <div className="text-center mb-8">
             <h1 className="text-3xl font-semibold text-gray-800 mb-2">
               Our Products
@@ -169,7 +181,7 @@ export function ProductCatalog() {
                   </div>
 
                   <Button
-                    variant="primary"
+                    variant="orange"
                     className="w-full"
                     onClick={() => handleApply(product.ProductId)}
                   >
