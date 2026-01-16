@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Car, AlertCircle, CheckCircle } from 'lucide-react';
 import type {
   AutoLoanRequest,
-  VehicleType,
   LoanSimulationResponse,
   ValidationResult,
 } from '../../types/loans';
@@ -40,7 +39,7 @@ const AutoLoanForm: React.FC<AutoLoanFormProps> = ({
   const [simulation, setSimulation] = useState<LoanSimulationResponse | null>(null);
   const [validation, setValidation] = useState<ValidationResult | null>(null);
   const [isSimulating, setIsSimulating] = useState(false);
-  const [isValidating, setIsValidating] = useState(false);
+  const [, setIsValidating] = useState(false);
 
   const financedAmount = formData.vehicle_price - formData.down_payment;
   const minDownPayment = formData.vehicle_price * 0.1;

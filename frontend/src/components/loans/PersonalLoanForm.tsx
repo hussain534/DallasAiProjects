@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Wallet, AlertCircle, CheckCircle } from 'lucide-react';
 import type {
   PersonalLoanRequest,
-  LoanPurpose,
-  EmploymentType,
   LoanSimulationResponse,
   ValidationResult,
 } from '../../types/loans';
@@ -39,7 +37,7 @@ const PersonalLoanForm: React.FC<PersonalLoanFormProps> = ({
   const [simulation, setSimulation] = useState<LoanSimulationResponse | null>(null);
   const [validation, setValidation] = useState<ValidationResult | null>(null);
   const [isSimulating, setIsSimulating] = useState(false);
-  const [isValidating, setIsValidating] = useState(false);
+  const [, setIsValidating] = useState(false);
 
   // Simulate loan when amount or term changes
   useEffect(() => {
@@ -109,10 +107,6 @@ const PersonalLoanForm: React.FC<PersonalLoanFormProps> = ({
     if (validation?.eligible) {
       onSubmit(formData);
     }
-  };
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('es-MX').format(value);
   };
 
   return (

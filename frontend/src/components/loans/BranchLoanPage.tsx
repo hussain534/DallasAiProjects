@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Building2,
   Wallet,
-  Car,
   Calendar,
   ChevronRight,
   Loader2,

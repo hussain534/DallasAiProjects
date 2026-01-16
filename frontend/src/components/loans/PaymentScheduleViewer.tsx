@@ -10,7 +10,7 @@ import {
   Clock,
   AlertTriangle,
 } from 'lucide-react';
-import type { PaymentSchedule, Payment, PaymentStatus } from '../../types/loans';
+import type { PaymentSchedule, PaymentStatus } from '../../types/loans';
 import { PAYMENT_STATUS_LABELS } from '../../types/loans';
 import { loanService } from '../../services/loanService';
 
