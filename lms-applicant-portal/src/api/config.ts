@@ -1,6 +1,7 @@
 // LMS API Configuration
 export const API_CONFIG = {
-  BASE_URL: 'https://lmsdemo1.temenos.com/LendingAPI',
+  // Use empty string for dev (proxy handles it), full URL for production
+  BASE_URL: '',
   API_VERSION: '1',
   API_KEY: 'xKHCjZOXMACk1xGmTPmYD2y3ov3BANyGI/thJB0YOCDntzw9LVsfx3IjRWJqwoPZ0pPhATz8YtyR6qn+aLjomve5GU7BktkOBhf1cH88+KS78/ujIPmsztVVQ0l7xdQubgmj3I+9T40YUFZjSLgcP4hUM0dRxPJALHRYlbKtptY=',
   TOKEN_EXPIRY_SECONDS: 900,      // 15 minutes

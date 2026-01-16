@@ -21,6 +21,9 @@ const tokenClient = axios.create({
   },
 });
 
+// Helper to build versioned API path
+const getLoginPath = () => `/api/v${API_CONFIG.API_VERSION}/login`;
+
 export const tokenService = {
   /**
    * Get stored token data from localStorage
@@ -95,7 +98,7 @@ export const tokenService = {
   async fetchNewToken(): Promise<string> {
     try {
       const response = await tokenClient.post<ApiKeyLoginResponse>(
-        `/api/v${API_CONFIG.API_VERSION}/login`,
+        getLoginPath(),
         { ApiKey: API_CONFIG.API_KEY }
       );
 
