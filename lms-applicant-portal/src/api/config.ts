@@ -2,7 +2,7 @@
 export const API_CONFIG = {
   BASE_URL: 'https://lmsdemo1.temenos.com/LendingAPI',
   API_VERSION: '1',
-  API_KEY: 'xKHCjZOXMACk1xGmTPmYD2y3ov3BANyGI/thJB0YOCDntzw9LVsfx3IjRWJqwoPZ0pPhATz8YtyR6qn+aLjomve5GU7BktkOBhf1cH88+KS78/ujIPmsztVVQ0l7xdQubgmj3I+9T40YUFZjSLgcP4hUM0dRxPJALHRYlbKtptY',
+  API_KEY: 'xKHCjZOXMACk1xGmTPmYD2y3ov3BANyGI/thJB0YOCDntzw9LVsfx3IjRWJqwoPZ0pPhATz8YtyR6qn+aLjomve5GU7BktkOBhf1cH88+KS78/ujIPmsztVVQ0l7xdQubgmj3I+9T40YUFZjSLgcP4hUM0dRxPJALHRYlbKtptY=',
   TOKEN_EXPIRY_SECONDS: 900,      // 15 minutes
   TOKEN_BUFFER_SECONDS: 60,       // Refresh 1 minute before expiry
 };
