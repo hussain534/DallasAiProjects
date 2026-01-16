@@ -1,164 +1,377 @@
-# Banking Ecosystem Landing Page - Implementation Plan
+# LMS Applicant Portal - Implementation Plan
 
 ## Overview
-Create a React-based landing page for consultants to demonstrate a Banking ecosystem. The page will feature interactive cards representing various banking systems, each linking to detailed sub-pages with API information, documentation, and demo environment links.
+
+This document outlines the implementation plan for the LMS Applicant Portal, a web application that allows applicants to view and manage their loan/credit applications, see pre-approval offers, and explore new product offerings.
+
+## UI Components (Based on Design)
+
+### 1. Header
+- Organization branding (State Employees' Credit Union)
+- Logo with state outline graphic
+- Dark blue/navy background
+
+### 2. Welcome Section
+- Personalized greeting ("Hello {FirstName},")
+- Subtitle describing portal capabilities
+
+### 3. Pre-Approval Offer Banner
+- "Apply Now" CTA button
+
+### 4. Application Tabs
+- "In Progress" tab (active state)
+- "Completed" tab
+- Tab filtering functionality
+
+### 5. Application Cards
+- Product icon (bank building for loans, credit card for cards)
+- Product name
+- Status indicator ("In Progress")
+- "View Details" link
+
+### 6. New Product Section
+- Section header ("Interested in a new product")
+- Description text
+- "Explore our offerings" CTA button
+
+### 7. Footer
+- Copyright notice
+- Equal Housing Opportunity link
+- Legal link
+
+---
 
 ## Technology Stack
-- **Framework**: React 18+ (with Vite for fast development)
-- **Styling**: Custom CSS/SCSS with CSS Modules
-- **Data Management**: JSON configuration files
-- **Routing**: React Router v6 for navigation between pages
 
-## Project Structure
+### Frontend
+- **Framework**: React 18+ with TypeScript
+- **Styling**: Tailwind CSS for utility-first styling
+- **State Management**: React Query (TanStack Query) for server state
+- **Routing**: React Router v6
+- **Build Tool**: Vite
+- **HTTP Client**: Axios
+
+### Project Structure
 ```
-DallasAiProjects/
-├── public/
-│   └── assets/
-│       └── icons/          # System icons/logos
-├── src/
-│   ├── components/
-│   │   ├── Header/
-│   │   │   ├── Header.jsx
-│   │   │   └── Header.module.scss
-│   │   ├── Footer/
-│   │   │   ├── Footer.jsx
-│   │   │   └── Footer.module.scss
-│   │   ├── SystemCard/
-│   │   │   ├── SystemCard.jsx
-│   │   │   └── SystemCard.module.scss
-│   │   ├── ApiList/
-│   │   │   ├── ApiList.jsx
-│   │   │   └── ApiList.module.scss
-│   │   └── LinkSection/
-│   │       ├── LinkSection.jsx
-│   │       └── LinkSection.module.scss
-│   ├── pages/
-│   │   ├── LandingPage/
-│   │   │   ├── LandingPage.jsx
-│   │   │   └── LandingPage.module.scss
-│   │   └── SystemDetail/
-│   │       ├── SystemDetail.jsx
-│   │       └── SystemDetail.module.scss
-│   ├── data/
-│   │   └── systems.json    # Banking systems configuration
-│   ├── styles/
-│   │   ├── _variables.scss # Color palette, spacing, typography
-│   │   ├── _mixins.scss    # Reusable SCSS mixins
-│   │   └── global.scss     # Global styles and resets
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.html
-├── package.json
-├── vite.config.js
-├── Plan.md                 # This plan document
-└── README.md
+src/
+├── api/
+│   ├── client.ts              # Axios instance with auth interceptors
+│   ├── endpoints.ts           # API endpoint constants
+│   └── services/
+│       ├── authService.ts     # Login/logout
+│       ├── applicationService.ts
+│       ├── applicantService.ts
+│       └── productService.ts
+├── components/
+│   ├── common/
+│   │   ├── Button.tsx
+│   │   ├── Card.tsx
+│   │   ├── Tabs.tsx
+│   │   └── Badge.tsx
+│   ├── layout/
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   └── portal/
+│       ├── WelcomeSection.tsx
+│       ├── PreApprovalBanner.tsx
+│       ├── ApplicationTabs.tsx
+│       ├── ApplicationCard.tsx
+│       └── NewProductSection.tsx
+├── hooks/
+│   ├── useAuth.ts
+│   ├── useApplications.ts
+│   └── useProducts.ts
+├── pages/
+│   ├── LoginPage.tsx
+│   ├── PortalDashboard.tsx
+│   ├── ApplicationDetails.tsx
+│   └── ProductCatalog.tsx
+├── types/
+│   ├── api.ts
+│   ├── application.ts
+│   └── applicant.ts
+├── utils/
+│   ├── formatters.ts
+│   └── constants.ts
+├── App.tsx
+└── main.tsx
 ```
 
-## Banking Systems to Include
-1. **Cards** - Credit/Debit card management system
-2. **CRM** - Customer Relationship Management
-3. **Digital** - Digital banking platform
-4. **ACH & Wires Payments** - Payment processing systems
-5. **Onboarding** - Customer onboarding system
+---
 
-## Data Structure (systems.json)
-```json
-{
-  "systems": [
-    {
-      "id": "cards",
-      "name": "Cards",
-      "description": "Credit and Debit card management system",
-      "icon": "cards-icon.svg",
-      "color": "#4A90D9",
-      "apis": [
-        {
-          "name": "Card Issuance API",
-          "portalUrl": "https://developer-portal.example.com/cards/issuance"
-        }
-      ],
-      "documentation": [
-        {
-          "title": "Cards Overview",
-          "url": "https://docs.example.com/cards"
-        }
-      ],
-      "demoLinks": [
-        {
-          "title": "Card Management Demo",
-          "url": "https://demo.example.com/cards"
-        }
-      ]
-    }
-  ]
+## API Integration
+
+### Base Configuration
+- **Base URL**: `https://lmsdemo1.temenos.com/LendingAPI/`
+- **API Version**: v1
+- **Authentication**: Bearer token (from `/api/v1/login`)
+
+### Key Endpoints
+
+| Feature | Method | Endpoint | Purpose |
+|---------|--------|----------|---------|
+| Login | POST | `/api/v1/login` | Authenticate user, receive token |
+| Verify Applicant | POST | `/api/v1/verifyapplicant` | Verify applicant identity |
+| Get Applications | POST | `/api/v1/application/search` | Search/filter applications |
+| Get Application | GET | `/api/v1/application/{id}` | Get application details |
+| Get Applicants | GET | `/api/v1/application/{id}/applicants` | Get applicants on application |
+| Get Applicant | GET | `/api/v1/application/{id}/applicants/{applicantId}` | Get specific applicant |
+| Get Products | GET | `/api/v1/Products/products` | Get available products |
+| Get Prescreen Offers | GET | `/api/v1/ExperianPrescreen/{TIN}/GetPrescreenOffers` | Get pre-approval offers |
+| Create Application | POST | `/api/v1/application` | Start new application |
+
+### Data Models
+
+#### Application
+```typescript
+interface Application {
+  ApplicationIdentifier: string;
+  ApplicationStatus: string;
+  ApplicationDate: string;
+  ProductName: string;
+  ProductType: string;
+  ApprovedAmount?: number;
+  Applicants: Applicant[];
 }
 ```
 
-## Implementation Steps
+#### Applicant
+```typescript
+interface Applicant {
+  ApplicantId: string;
+  FirstName: string;
+  LastName: string;
+  Email: string;
+  TIN: string;
+  ApplicantType: string;
+  Addresses: Address[];
+  Phones: Phone[];
+}
+```
 
-### Phase 1: Project Setup
-1. Initialize React project with Vite
-2. Install dependencies (react-router-dom, sass)
-3. Set up folder structure
-4. Configure SCSS and CSS Modules
-5. Create global styles and variables
+#### Pre-Approval Offer
+```typescript
+interface PreApprovalOffer {
+  ProductName: string;
+  ProductType: string;
+  ApprovedAmount: number;
+  ExpirationDate: string;
+}
+```
 
-### Phase 2: Core Components
-1. **Header Component** - Logo, title, navigation
-2. **Footer Component** - Copyright, contact info
-3. **SystemCard Component** - Clickable card displaying:
-   - System name and icon
-   - Brief description
-   - Visual indicator (color-coded)
-4. **ApiList Component** - List of APIs with portal links
-5. **LinkSection Component** - Reusable section for documentation/demo links
+---
 
-### Phase 3: Pages
-1. **LandingPage** - Grid layout of SystemCards
-   - Hero section with title/description
-   - Responsive card grid (3 columns desktop, 2 tablet, 1 mobile)
-   - Smooth hover animations
-2. **SystemDetail** - Detailed view for each system
-   - System header with icon and description
-   - APIs section with developer portal links
-   - Documentation section
-   - Demo environment links section
-   - Back to landing page navigation
+## Implementation Phases
 
-### Phase 4: Data Integration
-1. Create systems.json with placeholder data for all 5 systems
-2. Implement data loading in components
-3. Set up React Router for navigation
-4. Connect cards to detail pages via dynamic routing
+### Phase 1: Project Setup & Authentication
+**Tasks:**
+1. Initialize React project with Vite and TypeScript
+2. Configure Tailwind CSS
+3. Set up project folder structure
+4. Create Axios client with interceptors for auth
+5. Implement login page and authentication flow
+6. Set up React Query provider
+7. Create auth context and useAuth hook
+8. Implement token storage and refresh logic
 
-### Phase 5: Styling & Polish
-1. Implement responsive design (mobile-first)
-2. Add hover effects and transitions
-3. Ensure accessibility (ARIA labels, keyboard navigation)
-4. Professional banking-industry color scheme
+**API Endpoints Used:**
+- `POST /api/v1/login`
+- `POST /api/v1/verifyapplicant`
 
-## Key Features
-- **Responsive Design**: Works on desktop, tablet, and mobile
-- **Easy Configuration**: Add/modify systems by editing JSON
-- **Professional UI**: Clean, modern banking-appropriate design
-- **Fast Navigation**: React Router for seamless page transitions
-- **Maintainable**: Component-based architecture with CSS Modules
+### Phase 2: Layout & Core Components
+**Tasks:**
+1. Create Header component with branding
+2. Create Footer component with links
+3. Build reusable UI components:
+   - Button (primary, secondary, outline variants)
+   - Card component
+   - Tabs component
+   - Badge/Status indicator
+4. Set up main layout wrapper
+5. Configure React Router with protected routes
 
-## Files to Create/Modify
-1. `package.json` - Project dependencies
-2. `vite.config.js` - Vite configuration
-3. `src/main.jsx` - React entry point
-4. `src/App.jsx` - Main app with routing
-5. `src/data/systems.json` - Banking systems data
-6. `src/styles/*.scss` - Global styles
-7. `src/components/**` - All UI components
-8. `src/pages/**` - Landing and detail pages
+### Phase 3: Portal Dashboard
+**Tasks:**
+1. Create WelcomeSection component
+   - Fetch applicant name from API
+   - Display personalized greeting
+2. Create PreApprovalBanner component
+   - Fetch pre-approval offers
+   - Display offer details with gradient styling
+   - "Apply Now" button navigates to application flow
+3. Create ApplicationTabs component
+   - "In Progress" and "Completed" tabs
+   - Tab state management
+4. Create ApplicationCard component
+   - Product icon based on type
+   - Product name and status
+   - "View Details" link
+5. Create NewProductSection component
+   - Static content with CTA button
 
-## Verification
-1. Run `npm install` to install dependencies
-2. Run `npm run dev` to start development server
-3. Verify landing page displays all 5 system cards
-4. Click each card to navigate to detail page
-5. Verify all sections display on detail pages
-6. Test responsive layout at different screen sizes
-7. Verify all external links open correctly
+**API Endpoints Used:**
+- `POST /api/v1/application/search`
+- `GET /api/v1/ExperianPrescreen/{TIN}/GetPrescreenOffers`
+- `GET /api/v1/application/{id}/applicants/{applicantId}`
+
+### Phase 4: Application Details Page
+**Tasks:**
+1. Create ApplicationDetails page
+2. Display full application information:
+   - Application status and timeline
+   - Applicant information
+   - Product details
+   - Required documents
+   - Disclosures
+3. Add action buttons based on application status
+4. Display credit report summary (if available)
+
+**API Endpoints Used:**
+- `GET /api/v1/application/{id}`
+- `GET /api/v1/application/{id}/applicants`
+- `GET /api/v1/application/{id}/applicants/{id}/creditreports`
+- `GET /api/v1/application/{id}/accountproducts`
+
+### Phase 5: Product Catalog
+**Tasks:**
+1. Create ProductCatalog page
+2. Fetch and display available products
+3. Product cards with images and details
+4. "Apply" button to start new application
+5. Product filtering/search functionality
+
+**API Endpoints Used:**
+- `GET /api/v1/Products/products`
+- `GET /api/v1/SubProducts`
+- `GET /api/v1/Products/LargeImage`
+- `POST /api/v1/application` (to start application)
+
+### Phase 6: Polish & Testing
+**Tasks:**
+1. Add loading states and skeletons
+2. Implement error handling and error boundaries
+3. Add empty state displays
+4. Responsive design adjustments
+5. Accessibility improvements (ARIA labels, keyboard navigation)
+6. Unit tests for components
+7. Integration tests for API calls
+8. End-to-end testing
+
+---
+
+## UI/UX Specifications
+
+### Color Palette
+| Color | Hex | Usage |
+|-------|-----|-------|
+| Primary Blue | `#1e3a5f` | Header, primary buttons |
+| Gradient Start | `#4a1942` | Pre-approval banner |
+| Gradient End | `#7b2d5b` | Pre-approval banner |
+| Success Green | `#2d5a3d` | "Explore offerings" button |
+| Text Primary | `#333333` | Main text |
+| Text Secondary | `#666666` | Subtitle text |
+| Background | `#f5f5f5` | Page background |
+| Card Background | `#ffffff` | Card backgrounds |
+| Border | `#e0e0e0` | Card borders |
+
+### Typography
+- **Headings**: Sans-serif (Inter or similar)
+- **Welcome Title**: 24-28px, normal weight
+- **Card Titles**: 16-18px, semi-bold
+- **Body Text**: 14px, normal weight
+- **Status Labels**: 12px, medium weight
+
+### Component Specifications
+
+#### Pre-Approval Banner
+- Border radius: 8px
+- Padding: 24px
+- Gradient: linear-gradient(135deg, #4a1942, #7b2d5b)
+- "Apply Now" button: White background, dark text
+
+#### Application Cards
+- Border radius: 8px
+- Border: 1px solid #e0e0e0
+- Padding: 16px
+- Shadow: subtle box-shadow on hover
+- Icon size: 40x40px
+
+#### Tabs
+- Active tab: Filled background (#1e3a5f), white text
+- Inactive tab: Transparent background, dark text
+- Border radius: 20px (pill shape)
+
+---
+
+## Security Considerations
+
+1. **Token Storage**: Store JWT in httpOnly cookies or secure storage
+2. **HTTPS**: All API calls over HTTPS
+3. **Token Refresh**: Implement automatic token refresh before expiration
+4. **Input Validation**: Validate all user inputs client-side and server-side
+5. **CORS**: Ensure proper CORS configuration
+6. **XSS Prevention**: Sanitize any rendered user content
+7. **Session Timeout**: Implement automatic logout on inactivity
+
+---
+
+## File Deliverables
+
+After implementation, the project will include:
+
+```
+lms-applicant-portal/
+├── public/
+│   └── assets/
+│       └── images/
+├── src/
+│   ├── api/
+│   ├── components/
+│   ├── hooks/
+│   ├── pages/
+│   ├── types/
+│   ├── utils/
+│   ├── App.tsx
+│   └── main.tsx
+├── package.json
+├── tsconfig.json
+├── tailwind.config.js
+├── vite.config.ts
+└── README.md
+```
+
+---
+
+## Dependencies
+
+```json
+{
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "@tanstack/react-query": "^5.8.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "tailwindcss": "^3.3.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  }
+}
+```
+
+---
+
+## Next Steps
+
+1. Review and approve this plan
+2. Set up the React project with the specified stack
+3. Begin Phase 1 implementation (Project Setup & Authentication)
+4. Iteratively build and test each phase
+5. Deploy to staging environment for review
