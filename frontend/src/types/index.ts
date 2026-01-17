@@ -28,6 +28,7 @@ export type ComponentId =
   | 'observability'
   | 'design-time'
   | 'branch-loans'
+  | 'transact-loans'
 
 export interface Component {
   component_id: ComponentId

@@ -51,6 +51,15 @@ class Settings(BaseSettings):
     # External API Integration
     TEMENOS_DEV_PORTAL_APIKEY: str = Field(default="", description="Temenos Developer Portal API Key")
 
+    # Transact API Settings
+    TRANSACT_API_URL: str = Field(
+        default="http://localhost:9089",
+        description="Transact API base URL"
+    )
+    TRANSACT_USERNAME: str = Field(default="USUARIOAI", description="Transact username for Basic Auth")
+    TRANSACT_PASSWORD: str = Field(default="123456", description="Transact password for Basic Auth")
+    TRANSACT_USE_REAL_API: bool = Field(default=False, description="Use real Transact API instead of mock")
+
     # JWT Authentication
     JWT_SECRET_KEY: str = Field(
         default_factory=lambda: secrets.token_urlsafe(32),

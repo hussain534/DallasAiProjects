@@ -1,4 +1,4 @@
-import { Network, Database, Cloud, Shield, Eye, Palette } from 'lucide-react'
+import { Network, Database, Cloud, Shield, Eye, Palette, Building2 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import type { ComponentId } from '../types'
 
@@ -56,6 +56,20 @@ const components: ComponentCard[] = [
     description: 'Software design principles and architecture patterns',
     icon: Palette,
     color: 'bg-indigo-500',
+  },
+  {
+    id: 'branch-loans',
+    name: 'Sucursal Bancaria',
+    description: 'Sistema de solicitudes de credito personal y automotriz',
+    icon: Building2,
+    color: 'bg-cyan-600',
+  },
+  {
+    id: 'transact-loans',
+    name: 'Sucursal Transact',
+    description: 'Sistema de creditos integrado con Temenos Transact API',
+    icon: Building2,
+    color: 'bg-orange-600',
   },
 ]
 

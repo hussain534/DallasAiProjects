@@ -6,6 +6,7 @@ import { ComingSoonModal } from './components/ComingSoonModal'
 import { HomePage } from './pages/HomePage'
 import { ComponentPage } from './pages/ComponentPage'
 import { BranchLoanPage } from './components/loans'
+import { TransactBranchPage } from './components/transact-loans'
 import type { ComponentId } from './types'
 
 function App() {
@@ -97,6 +98,8 @@ function App() {
           <div className="max-w-7xl">
             {currentComponent === 'branch-loans' ? (
               <BranchLoanPage />
+            ) : currentComponent === 'transact-loans' ? (
+              <TransactBranchPage />
             ) : currentComponent ? (
               <ComponentPage componentId={currentComponent} />
             ) : (
